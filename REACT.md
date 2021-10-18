@@ -9,3 +9,5 @@ React est un framework de developpement FRONT Web, il repose sur le langage JAVA
 - Langage JavaScript : REACT utilise le JavaScript moderne et tout ces concepts
 - State : permet de modifier dynamiquement les données d'un composant
 - Les props servent a transférer des données entre composants
+
+# TODO : finir de resumer les concepts généraux

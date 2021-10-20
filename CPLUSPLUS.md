@@ -4,8 +4,8 @@ Langage compilé orienté objet, le C++ permet d'alouer soi même ces unités m�
 
 ## Concepts généraux :
 
-- allocation d'espaces mémoire via les pointeurs
-- fonctions
+- new & delete pour la gestion de l'allocation mémoire : réserve et supprime une place mémoire pour un objet.
+- Fonctions
   - arguments optionnels
   - surcharge de méthodes
   - passage d'arguments par référence (modification de la var au sein de la fonction sans soucis de portée)

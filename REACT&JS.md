@@ -21,7 +21,7 @@ console.log(b); // [1,2,3,4]
 ```js
 //example
 function func(...args){ //premet à la fonction de rendre plusieur arguments sous forme d'un tableau
-	return args;
+	return args; //tableau des paramètres passés à la fonction
 }
 ```
 

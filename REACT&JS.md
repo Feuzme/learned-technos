@@ -165,6 +165,21 @@ React est un framework de developpement FRONT Web, il repose sur le langage JAVA
 	document.getElementById('root')
 	);
 	```
+- middleware : se déclenche à chaque utilisation d'un dispatch
+	```js
+	//Ici déclenche la fonction customMiddleware 
+	const rootReducer = combineReducers({
+    CounterReducer,
+    AddCartReducer
+})
+
+const customMiddleware = store => next => action => {
+    next(action);
+}
+const store = createStore(rootReducer, applyMiddleware(customMiddleware));
+
+export default store;
+	```
 
 
 ## TODO : finir de resumer les concepts généraux

@@ -95,5 +95,76 @@ React est un framework de developpement FRONT Web, il repose sur le langage JAVA
 	}
 	```
 - useCallBack(()=>{}, []) : permet de passer une fonction à un composant et de ne le recharger qu'à un changement du paramètre entre crochet
+- react-router
+	- permet de créer des routes vers les différents composants de notre app
+	- useHistory : permet de naviguer dans l'application par exemple en cliquant sur un btn
+	```js
+	export default function Projets() {
+    const history = useHistory();
+    
+    return (
+        <div>
+            <h1>PROJETS</h1>
+            <button
+            onClick={()=> history.push('/')} //renvoi l'user à root au click
+            >Go to root</button>
+        </div>
+    )}
+	```
+	- useParams : pour utiliser les params de l'url, par exemple le slug (params présents en fin d'url). Exemple => localhost/moncomp/coucou
+	```js
+	//App.js
+	return(
+		<>  
+      <Router>
+        <Nav/>
+        <Switch> 
+          <Route path='/moncomp' exact component={MonComp}></Route>
+          <Route path='/moncomp/:slug' exact component={MonComp}></Route>              
+        </Switch>
+      </Router>    
+    </>
+	)
+	//component MonComp
+	const {slug} = useParams();
+
+	console.log(slug); //=> coucou
+	```
+	- useLocation : permet de passer des données dans notre app entre composants
+	```js
+	//Composant acceuil
+	//Passe ici txt à la page contacts via le state => données transmise entre les pages
+	return (
+        <div>
+            <h1>ACCEUIL</h1>
+            <Link
+            to={{
+                pathname: "/contacts",
+                state:{
+                    txt: "des données" 
+                }
+            }}>
+                Aller à CONTACTS
+            </Link>
+        </div>
+    )
+	```
+- API de contexte
+	- permet de passer des données à tout les composant sans avoir à descendre d'enfant en enfant.
+	- peut permettre de gérer les thèmes, les langues, l'authentification ect. Des changement peu fréquents globaux.
+	- Redux : pour faire des changement fréquents. Pour les app ayant beaucoup de states et de mise à jour à effectuer.
+- useSelector(selector => selector.member) permet d'accéder au store redux, et de recupérer les données du selector passé en arg, ici par exemple le membre member du selector "selector".
+	```js
+	//passage du store redux  à l'app dans index.js
+	const Store = createStore(CounterReducer);
+
+	ReactDOM.render(
+	<Provider store={Store}>
+		<App />
+	</Provider>,
+	document.getElementById('root')
+	);
+	```
+
 
 ## TODO : finir de resumer les concepts généraux
